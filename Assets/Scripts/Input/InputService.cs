@@ -13,7 +13,6 @@ namespace Command.Input
         private CommandType selectedCommandType;
         private TargetType targetType;
 
-        private bool isSuccessful = true;
         public InputService()
         {
             mouseInputHandler = new MouseInputHandler(this);
