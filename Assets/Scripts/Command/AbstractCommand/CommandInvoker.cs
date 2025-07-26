@@ -1,6 +1,5 @@
-using System.Collections;
+using Command.Main;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class CommandInvoker 
 {
@@ -18,4 +17,17 @@ public class CommandInvoker
 
     //Register a command by adding it to the command registry stack.
     public void RegisterCommand(ICommand commandToRegister) => commandRegistry.Push(commandToRegister);
+
+    private bool RegistryEmpty() => commandRegistry.Count == 0;
+
+    private bool CommandBelongsToActivePlayer()
+    {
+       return (commandRegistry.Peek() as UnitCommand).commandData.ActorPlayerID == GameService.Instance.PlayerService.ActivePlayerID;
+    }
+
+    public void Undo()
+    {
+        if (!RegistryEmpty() && CommandBelongsToActivePlayer())
+            commandRegistry.Pop().Undo();
+    }
 }
