@@ -85,6 +85,7 @@ namespace Command.Player
             unitView.UpdateHealthBar((float)CurrentHealth / CurrentMaxHealth);
         }
 
+        public void ProcessUnitCommand(UnitCommand commandToProcess) => GameService.Instance.CommandInvoker.ProcessCommand(commandToProcess);
         private void UnitDied()
         {
             SetAliveState(UnitAliveState.DEAD);
