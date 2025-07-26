@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using Command.Main;
 using Command.Actions;
 public class AttackCommand : UnitCommand
@@ -16,4 +13,16 @@ public class AttackCommand : UnitCommand
     public override bool WillHitTarget() => true;
 
     public override void Execute() => GameService.Instance.ActionService.GetActionByType(CommandType.Attack).PerformAction(actorUnit, targetUnit, willHitTarget);
+
+    public override void Undo()
+    {
+        if (willHitTarget)
+        {
+            if (!targetUnit.IsAlive())
+                targetUnit.Revive();
+
+            targetUnit.RestoreHealth(actorUnit.CurrentPower);
+            actorUnit.Owner.ResetCurrentActiveUnit();
+        }
+    }
 }
