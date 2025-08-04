@@ -1,6 +1,6 @@
 using Command.Main;
 using Command.Actions;
-
+using Command.Commands;
 public class MeditateCommand : UnitCommand
 {
     private bool willHitTarget;

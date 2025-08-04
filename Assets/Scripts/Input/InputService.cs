@@ -1,7 +1,7 @@
 using Command.Main;
 using Command.Player;
 using Command.Actions;
-using static UnitCommand;
+using Command.Commands;
 
 namespace Command.Input
 {

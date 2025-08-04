@@ -8,6 +8,8 @@ using Command.UI;
 using Command.Events;
 using Command.Battle;
 using Command.Actions;
+using Command.Replay;
+using Command.Commands;
 using UnityEngine.UI;
 
 namespace Command.Main

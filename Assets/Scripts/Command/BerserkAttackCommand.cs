@@ -1,7 +1,7 @@
 using Command.Main;
 using UnityEngine;
 using Command.Actions;
-
+using Command.Commands;
 public class BerserkAttackCommand : UnitCommand
 {
     private bool willHitTarget;

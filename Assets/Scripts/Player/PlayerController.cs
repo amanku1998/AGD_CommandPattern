@@ -1,3 +1,4 @@
+using Command.Commands;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -84,12 +85,12 @@ namespace Command.Player
 
         public void ProcessUnitCommand(UnitCommand commandToProcess) => GetUnitByID(commandToProcess.commandData.ActorUnitID).ProcessUnitCommand(commandToProcess);
         // TODO:    What is this??
-        public void ResetCurrentActivePlayer()
-        {
-            units[activeUnitIndex].ResetUnitIndicator();
-            activeUnitIndex--;
-            units[activeUnitIndex].StartUnitTurn();
-        }
+        //public void ResetCurrentActivePlayer()
+        //{
+        //    units[activeUnitIndex].ResetUnitIndicator();
+        //    activeUnitIndex--;
+        //    units[activeUnitIndex].StartUnitTurn();
+        //}
 
         public void ResetCurrentActiveUnit()
         {

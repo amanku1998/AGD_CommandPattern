@@ -1,6 +1,6 @@
 using Command.Main;
 using Command.Actions;
-
+using Command.Commands;
 public class ThirdEyeCommand : UnitCommand
 {
     private bool willHitTarget;
