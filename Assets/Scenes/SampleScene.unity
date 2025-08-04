@@ -218,7 +218,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &101671527
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1139,7 +1139,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -80}
+  m_AnchoredPosition: {x: 191, y: -80}
   m_SizeDelta: {x: 120, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &799045267
@@ -1453,6 +1453,7 @@ MonoBehaviour:
   EnemyOverlayColor: {r: 1, g: 0, b: 0, a: 0.23529412}
   ActionSelectionOverlayColor: {r: 0, g: 0, b: 1, a: 0.23529412}
   backgroundImage: {fileID: 1331666487}
+  undoButton: {fileID: 101671528}
 --- !u!1 &988327833
 GameObject:
   m_ObjectHideFlags: 0
@@ -1471,7 +1472,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &988327834
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1489,7 +1490,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -200, y: -80}
+  m_AnchoredPosition: {x: -210, y: -80}
   m_SizeDelta: {x: 120, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &988327835
@@ -2787,6 +2788,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resultText: {fileID: 1682630446}
   homeButton: {fileID: 799045267}
+  replayButton: {fileID: 988327835}
 --- !u!1 &2089575972
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,5 +1,6 @@
 using Command.Actions;
 using Command.Main;
+using Command.Commands;
 
 namespace Command.Player
 {
@@ -65,7 +66,7 @@ namespace Command.Player
 
         public void OnPlayerTurnCompleted() => StartNextTurn();
 
-        public void PerformAction(ActionType actionSelected, UnitController targetUnit) => GameService.Instance.ActionService.GetActionByType(actionSelected).PerformAction(activePlayer.GetUnitByID(ActiveUnitID), targetUnit);
+        public void PerformAction(CommandType actionSelected, UnitController targetUnit, bool isSuccessful) => GameService.Instance.ActionService.GetActionByType(actionSelected).PerformAction(activePlayer.GetUnitByID(ActiveUnitID), targetUnit, isSuccessful);
 
         public void PlayerDied(PlayerController deadPlayer)
         {
@@ -79,6 +80,23 @@ namespace Command.Player
             GameService.Instance.UIService.ShowBattleEndUI(winnerId);
         }
 
+        public void ProcessUnitCommand(UnitCommand commandToProcess)
+        {
+            // Set unit references for the command.
+            SetUnitReferences(commandToProcess);
+            // Delegate unit command processing to the corresponding player.
+            GetPlayerById(commandToProcess.commandData.ActorPlayerID).ProcessUnitCommand(commandToProcess);
+        }
+
+        private void SetUnitReferences(UnitCommand commandToProcess)
+        {
+            // Get actor and target units based on the command data.
+            var actorUnit = GetPlayerById(commandToProcess.commandData.ActorPlayerID).GetUnitByID(commandToProcess.commandData.ActorUnitID);
+            var targetUnit = GetPlayerById(commandToProcess.commandData.TargetPlayerID).GetUnitByID(commandToProcess.commandData.TargetUnitID);
+            // Set the actor and target units for the command.
+            commandToProcess.SetActorUnit(actorUnit);
+            commandToProcess.SetTargetUnit(targetUnit);
+        }
         private PlayerController GetPlayerById(int playerId) 
         {
             if (player1.PlayerID == playerId)
